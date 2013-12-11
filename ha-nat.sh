@@ -121,7 +121,7 @@ for subnet in $PRIVATE_SUBNETS; do
 		log "$subnet is not associated with a Route Table. Skipping this subnet."
 	else
 		# Modify found private subnet's Routing Table to point to new HA NAT instance id
-		aws ec2 create-route --route-table-id $ROUTE_TABLE_ID --destination-cidr-block 0.0.0.0/0 --instance-id $INSTANCE_ID
+		aws ec2 create-route --route-table-id $ROUTE_TABLE_ID --destination-cidr-block 0.0.0.0/0 --instance-id $INSTANCE_ID &&
 		log "$ROUTE_TABLE_ID associated with $subnet modified to point default route to $INSTANCE_ID."
 		if [ $? -ne 0 ] ; then
 			log "Route already exists, replacing existing route."
