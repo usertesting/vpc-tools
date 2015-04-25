@@ -57,7 +57,7 @@
 #   recommended HA NAT configuration is 1 NAT per AZ and 1 unique private Route Table per AZ.
 
 # Enable for debugging
-# set -x
+set -x
 
 function log { logger -t "vpc" -- $1; }
 
